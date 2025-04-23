@@ -51,7 +51,7 @@ def process_line(line: str, alpha: float) -> str:
         str: Processed line with notes modified according to alpha.
     """
     # Regular expression to capture header and notes parts
-    pattern = re.compile(r'((?:$\d+\.?\d*$|\{\d+\})*)([^(){}]*)')
+    pattern = re.compile(r'((?:\(\d+\.?\d*\)|\{\d+\})*)([^(){}]*)')
     segments = pattern.findall(line)
     processed_segments = []
     for head, notes_part in segments:
