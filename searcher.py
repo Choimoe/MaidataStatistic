@@ -143,7 +143,7 @@ class MaiChartScanner:
         """
         try:
             parser = Parser(file_path)
-            parser.validate()
+            # parser.validate()
 
             # Preserve raw content in metadata
             parser.data['metadata']['raw_content'] = self._read_raw_content(file_path)
@@ -221,6 +221,9 @@ class MaiChartScanner:
 
             if chart := result.match_details.get('inote_6_data'):
                 report.append(f"Difficulty 6 notes: {len(chart['note_data'])}")
+
+            if result.match_details:
+                report.append(f"Details: {result.match_details}")
 
             report.append("")  # Add separator between entries
 
